@@ -133,6 +133,10 @@ nav a{
     display: block;
   }
 
+   .loans-image img{
+    object-position: center 75%;
+  }
+
  /* Step 8a: Write the selector/rule property to style the .text-block class. */
   .text-block{
     background-color: rgba(255,255,255,0.8);
