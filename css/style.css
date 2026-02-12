@@ -137,7 +137,7 @@ nav a{
  /* Step 8a: Write the selector/rule property to style the .text-block class. */
   .text-block{
     background-color: rgba(255,255,255,0.8);
-    border: 15px solid black;
+    border: 10px solid black;
     padding: 22px;
     text-align: center;
     justify-self: center;
