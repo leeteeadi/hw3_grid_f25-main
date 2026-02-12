@@ -1,45 +1,234 @@
-/*Your Code Here*/
+ /* Your Code Here */
 
-/*Write selector/rule property to add your border when
-links in the navigation are in the hover or focus state.*/
-
-
-/*Write selector/rule property to position the default position for the skip class element*/
-
-
-/*Write selector/rule property to position the skip class element when it is in focus*/
-
-/*Write selector/rule property to style all elements when in focus*/
-
-
-
-/*Write selector/rule property to style the container */
+ /* Write selector/rule property to add your border when
+ links in the navigation are in the hover or focus state. */
+ /* Step 1 */
+nav a{
+  border: 2px dotted transparent;
+}
+nav a:hover,
+nav a:focus{
+  border-color: purple;
+}
 
 
-/*Write selector/rule property to add the background image to the first div in the grid and place it in the grid. */
+ /* Write selector/rule property to position the default position for the skip class element */
+ /* Step 2a */
+
+.skip a{
+  position: absolute;
+  top: -65px;
+  left: 0;
+  z-index: 999; /* so it can appear above things */
+}
+
+ /* Write selector/rule property to position the skip class element when it is in focus */
+ /* Step 2b */
+.skip a:focus{
+  top: 25px;
+}
+
+ /* Write selector/rule property to style all elements when in focus */
+ /*Step 3 */
+*:focus{
+  outline: 5px dashed green;
+}
+
+nav{
+  background-color: #ddd;
+  padding: 25px 0;
+  text-align: left;
+}
+
+nav ul{
+  margin: 0;
+  padding: 0;
+}
+
+nav li{
+  display: inline;
+  padding-right: 20px;
+}
+
+nav a{
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
 
 
-/* Steps 6 and 7: Write the selector/rule properties to  place the next five elements in the next
+ /* Following specifications are for the default/mobile view */
+
+@media screen and (min-width: 700px) {
+
+ /* Write selector/rule property to style the container */
+ /* Step 4 */
+  .container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 13px;
+    background-color: #7a7a7a;
+  }
+
+ /* Write selector/rule property to add the background image to the first div in the grid and place it in the grid. */
+ /* Step 5 */
+  .container > :first-child{
+    grid-column: 1 / -1;
+    background-image: url("../images/header.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 400px;
+  }
+
+ /* Steps 6 and 7: Write the selector/rule properties to  place the next five elements in the next
  five rows in the grid. */
 
-      /*This will be a lot of rules.... but be strategic and combine selectors*/
+ /* This will be a lot of rules.... but be strategic and combine selectors */
+
+ /* Make images fill their grid areas nicely */
+ /* Step 6 */
+  .accounts,
+  .onlinebanking,
+  .security,
+  .loans,
+  .contact{
+    grid-column: 2 / span 3;
+    position: relative;
+    z-index: 2;
+    align-self: center;
+  }
+
+  .accounts{       grid-row: 2 / 3;}
+  .onlinebanking{  grid-row: 3 / 4;}
+  .security{       grid-row: 4 / 5;}
+  .loans{          grid-row: 5 / 6;}
+  .contact{        grid-row: 6 / 7;}
+
+ /* Each section shares the same row so the text-block overlays the image */
+ /* Step 7 */
+  .accounts-image,
+  .onlinebanking-image,
+  .security-image,
+  .loans-image,
+  .contact-image{
+    grid-column: 1 / -1;
+    max-height: 675px;
+    height: 675px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
+  .accounts-image{       grid-row: 2 / 3;}
+  .onlinebanking-image{  grid-row: 3 / 4;}
+  .security-image{       grid-row: 4 / 5;}
+  .loans-image{          grid-row: 5 / 6;}
+  .contact-image{        grid-row: 6 / 7;}
+  .accounts-image img,
+  .onlinebanking-image img,
+  .security-image img,
+  .loans-image img,
+  .contact-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Optional: “lower” the loans image (shows more of the bottom) */
+  .loans-image img{
+    object-position: center 75%;
+  }
+
+ /* Step 8a: Write the selector/rule property to style the .text-block class. */
+  .text-block{
+    background-color: rgba(255,255,255,0.78);
+    border: 5px solid #000;
+    padding: 22px;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+  }
+
+ /* Step 8b; lists inside text-block are left-aligned */
+  .text-block ul,
+  .text-block ol{
+    text-align: left;
+    display: inline-block;
+    margin: 10px auto 0;
+    padding-left: 20px;
+  }
+}
 
 
- /* Step 8: Write the selector/rule property to style the .text-block class. */
+ /* Add your media query here */
+@media screen and (min-width: 825px) {
 
+ /* The following specifications are for the desktop view */
 
-/* Add your media query here */
+ /* Step 10: Write the selector/rule property to style the nav element */
+  nav{
+    text-align: right;
+    padding: 35px 0;
+  }
+  nav li{
+    display: inline-block;
+    margin-left: 18px;
+  }
 
-
-  /* Step 10: Write the selector/rule property to style the nav element */
-
- 
   /* Step 11: Write the selector/rule property to update the .container class */
+  .container{
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 0;
+    row-gap: 0;
+  }
 
+  .accounts-image,
+  .onlinebanking-image,
+  .security-image,
+  .loans-image,
+  .contact-image{
+    height: 600px;
+    max-height: 600px;
+  }
 
-  /* Steps 12 - 15: Update the grid-column property of the grid's children (where-needed)*/
+   /* Steps 12 - 15: Update the grid-column property of the grid's children (where-needed) */
 
+   /* Step 12 */
+  .accounts,
+  .security,
+  .contact{
+    grid-column: 4 / span 3;
+  }
 
+    /* Step 13 */
+  .onlinebanking,
+  .loans{
+    grid-column: 1 / span 3;
+  }
 
- /* Step 16:Write the selector/rule property to update the .text-block class */
+    /* Step 14 */
+  .accounts-image,
+  .security-image,
+  .contact-image{
+    grid-column: 1 / span 5;
+  }
+
+    /* Step 15 */
+  .onlinebanking-image,
+  .loans-image{
+    grid-column: 3 / span 5;
+  }
+
+  /* Step 16: Write the selector/rule property to update the .text-block class */
+  .text-block{
+    margin: 0;
+    padding: 26px;
+    max-height: 235px;
+    overflow: auto;
+  }
+}
+
+/* End of your code */
 
