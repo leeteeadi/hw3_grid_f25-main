@@ -202,7 +202,7 @@ nav a{
     /* Step 13 */
   .onlinebanking,
   .loans{
-    grid-column: 1 / span 3;
+    grid-column: 2 / span 3;
   }
 
     /* Step 14 */
