@@ -76,9 +76,6 @@ nav a{
     grid-column: 1 / -1;
     background-image: url("../images/header.jpg");
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    height: 400px;
   }
 
  /* Steps 6 and 7: Write the selector/rule properties to  place the next five elements in the next
@@ -136,7 +133,6 @@ nav a{
     display: block;
   }
 
-  /* Optional: “lower” the loans image (shows more of the bottom) */
   .loans-image img{
     object-position: center 75%;
   }
