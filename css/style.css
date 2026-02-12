@@ -19,7 +19,6 @@ nav a:focus{
   position: absolute;
   top: -65px;
   left: 0;
-  z-index: 999; /* so it can appear above things */
 }
 
  /* Write selector/rule property to position the skip class element when it is in focus */
